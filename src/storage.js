@@ -640,6 +640,11 @@ StorageAdapter.prototype.load = function (query) {
         });
 };
 
+StorageAdapter.prototype.loadManual = function (data) {
+  var self = this;
+  self.runHook('annotationsLoaded', [data]);
+};
+
 // Cycle a store event, keeping track of the annotation object and updating it
 // as necessary.
 StorageAdapter.prototype._cycle = function (
