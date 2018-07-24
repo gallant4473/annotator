@@ -364,7 +364,7 @@ HttpStorage.prototype._urlFor = function (action, id) {
 HttpStorage.prototype._methodFor = function (action) {
     var table = {
         create: 'POST',
-        update: 'PUT',
+        update: 'POST',
         destroy: 'DELETE',
         search: 'GET'
     };
