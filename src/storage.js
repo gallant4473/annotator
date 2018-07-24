@@ -262,7 +262,7 @@ HttpStorage.prototype.setHeader = function (key, value) {
  * :rtype: jqXHR
  */
 HttpStorage.prototype._apiRequest = function (action, obj) {
-    var id = obj && obj.id;
+    var id = obj && obj.annotation_id;
     var url = this._urlFor(action, id);
     var options = this._apiRequestOptions(action, obj);
 
@@ -675,7 +675,7 @@ StorageAdapter.prototype._cycle = function (
             }
 
             // Update with store return value
-            $.extend(obj, ret);
+            $.extend(obj, ret.data);
             self.runHook(afterEvent, [obj]);
             return obj;
         });
