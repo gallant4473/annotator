@@ -116,7 +116,7 @@ Filter.prototype.addFilter = function (options) {
         }
     }
     if (!hasFilterForProp) {
-        filter.id = 'annotator-filter-' + filter.property;
+        filter.annotation_id = 'annotator-filter-' + filter.property;
         filter.annotations = [];
         filter.element = this.filter.clone().appendTo(this.element);
         filter.element.find('label')

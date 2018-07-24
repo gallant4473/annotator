@@ -157,7 +157,7 @@ Highlighter.prototype.draw = function (annotation) {
     $(annotation._local.highlights).data('annotation', annotation);
 
     // Add a data attribute for annotation id if the annotation has one
-    if (typeof annotation.id !== 'undefined' && annotation.id !== null) {
+    if (typeof annotation.annotation_id !== 'undefined' && annotation.annotation_id !== null) {
         $(annotation._local.highlights)
             .attr('data-annotation-id', annotation.id);
     }

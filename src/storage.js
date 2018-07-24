@@ -38,7 +38,7 @@ exports.debug = function () {
 
     return {
         create: function (annotation) {
-            annotation.id = id();
+            annotation.annotation_id = id();
             trace('create', annotation);
             return annotation;
         },
@@ -79,9 +79,9 @@ exports.debug = function () {
 exports.noop = function () {
     return {
         create: function (annotation) {
-            if (typeof annotation.id === 'undefined' ||
-                annotation.id === null) {
-                annotation.id = id();
+            if (typeof annotation.annotation_id === 'undefined' ||
+                annotation.annotation_id === null) {
+                annotation.annotation_id = id();
             }
             return annotation;
         },
@@ -568,7 +568,7 @@ StorageAdapter.prototype.create = function (obj) {
  * :returns Promise: Resolves to annotation object when stored.
  */
 StorageAdapter.prototype.update = function (obj) {
-    if (typeof obj.id === 'undefined' || obj.id === null) {
+    if (typeof obj.annotation_id === 'undefined' || obj.annotation_id === null) {
         throw new TypeError("annotation must have an id for update()");
     }
     return this._cycle(
@@ -595,7 +595,7 @@ StorageAdapter.prototype.update = function (obj) {
  * :returns Promise: Resolves to annotation object when deleted.
  */
 StorageAdapter.prototype['delete'] = function (obj) {
-    if (typeof obj.id === 'undefined' || obj.id === null) {
+    if (typeof obj.annotation_id === 'undefined' || obj.annotation_id === null) {
         throw new TypeError("annotation must have an id for delete()");
     }
     return this._cycle(
